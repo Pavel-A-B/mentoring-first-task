@@ -1,0 +1,350 @@
+.header {
+  height: 128px;
+  background-color: #4B565B;  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.content-container { 
+  max-width: 1320px;
+  width: 1320px;
+  display: flex;
+  justify-content: space-between;
+  font-family: inter; 
+  font-size: 16px; 
+  font-weight: 500;  
+  align-items: center; 
+}  
+
+.header-left {
+  display: flex;
+  align-items: center;
+} 
+
+.header-nav-item {
+  display: flex;
+  margin-right: 20px;
+}
+
+.header-logo {
+  margin-right: 20px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.header-right-item {
+  margin: 20px;
+  color: white;
+  text-decoration: none;
+  background-color: #4B565B;  
+}
+
+.header-right-item-button {
+  display: flex;
+  align-items: center;
+  color: white;
+  background-color: #4B565B;
+  border-style: solid;
+  border-radius: 50px ;
+  border-width: 1px;
+  border-color: #F0BA4E;
+  width: 126px;
+  height: 48px;
+  padding: 20px;
+  justify-content: space-between;
+  font-size: 16px; 
+  font-weight: 500;
+} 
+
+
+.header2 {
+  background-color: #F0BA4E;
+  display: flex;
+  justify-content: center;
+  
+}
+
+.header2__items {
+  height: 48px;
+  background-color: #F0BA4E;
+  display: flex;
+  align-items: center;
+ 
+}
+
+.header2__item {
+  border: none;
+  background-color: #F0BA4E;
+} 
+.header2__search {
+  display: flex;
+  margin-right: 30px;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.search {
+   width: 350px;
+   height: 19px;
+   background-color: #F0BA4E;
+   border: none;
+   border-bottom: solid 1px #3C3C3B;
+ }
+ .search-img {
+   margin-right: 30px;
+   border-bottom: solid 1px #3C3C3B;
+   margin-bottom: 3px;
+ }
+
+ .search-gps {
+   margin-right: 4px;
+ }
+ .search-name {
+   margin-top: 5px;
+ } 
+
+ .poster {
+  position: relative;
+  background-image: url('/assets/Rectangle 5.svg');
+  width: 100%;
+  background-color:black;
+  height: 720px;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items:center;
+  justify-content: flex-start;
+ }
+ 
+.poster__img-1 {
+  color: #F0BA4E;
+  font-size: 30px;
+  text-align: center; 
+  width: 800px;
+  font-family: inter;
+}
+
+.adv-container {
+  display: flex;
+  width: 1319px;
+  font-size: 18px;
+  font-family: inter;
+  justify-content: center;
+
+}
+.cards-adv {
+  display: flex;
+  justify-content: center;
+  width: 1319;
+ }
+
+.cards-adv-item {
+  width: 421px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  margin-top: 28px;
+  margin-left: 16px;
+  
+}
+.text {
+  padding-left: 16px;
+}
+
+.title {
+  color:#000000;
+}
+.child {
+  color: #A1A0A0;
+}
+
+
+.item-cards {
+  display: flex;
+  justify-content:center ;
+}
+.item-cards__pagination {
+  display: flex;
+  justify-content:flex-end;
+  width: 1319px;
+   box-sizing: border-box;
+  padding: 15px;  
+  
+    
+}       
+
+
+.active-button {
+  color: #4B565B;
+   font-weight: 600; 
+  border: none;
+  background-color: white;
+}
+
+.content2-container {
+  //max-width: 1320px;
+  //width: 100%;
+ // margin: 0 auto;
+ margin-left: 300px;
+}
+
+.item-cards__grid {
+ display: flex;
+ //align-items: center;
+ justify-content:space-between;
+
+}
+
+
+.item-cards__grid-left {
+  max-height: 428px;
+  max-width: 491px;
+  width: 421px;
+  height: 428px;
+  background-image: url(/assets/image_19.png);
+  background-repeat: no-repeat;
+  overflow: hidden;
+  box-shadow: 0px 20px 50px 0px #3c3c3b12;
+  background-position-x: left;
+  background-position-y: bottom;
+  margin-bottom: 300px;
+  //padding-left: 130px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.item-cards__grid-left-text {
+  font-family: inter;
+  color: #000000;
+  font-size: 28px;
+  font-weight: 600;
+  box-sizing: border-box;
+  padding: 15px;
+ 
+}
+.item-cards__grid-left-action {
+  align-self:end;
+  display: flex;
+  align-items: center;
+
+}
+.item-cards__grid-left-action-link {
+  margin-right: 5px;
+  width: 40px;
+  height: 40px;
+}
+
+.item-cards__grid-right {
+  display: flex;
+  flex-wrap: wrap;
+ //height: 100%;
+  //width: 100%;
+  gap: 28px;
+  
+}
+
+
+.item-cards__grid-right-block {
+  width: 421px;
+  height: 200px;
+  margin-left: 29px;
+  box-shadow: 0px 20px 50px 0px #3c3c3b12;
+
+} 
+
+.item-cards__grid-left-1{
+ max-height: 428px;
+  max-width: 491px;
+  width: 421px;
+  height: 428px;
+  background-image: url(/assets/image_19.png);
+  background-repeat: no-repeat;
+  overflow: hidden;
+  box-shadow: 0px 20px 50px 0px #3c3c3b12;
+  background-position-x: left;
+  background-position-y: bottom;
+  margin-left: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+
+}
+.grid {
+  display: grid;
+  grid-template-columns: 421px 421px 421px;
+  grid-template-rows: 214px 214px 214px;
+  grid-column-gap: 29px; 
+  justify-content: center;
+}
+.grid_1{
+  //background-color: yellow;
+  width: 100%;
+  height: 100%;
+  grid-row-start: 1;
+  grid-row-end: 3;
+  max-height: 428px;
+  max-width: 421px;
+  width: 421px;
+  height: 428px;
+  background-image: url(/assets/image_19.png);
+  background-repeat: no-repeat;
+  overflow: hidden;
+  box-shadow: 0px 20px 50px 0px #3c3c3b12;
+  background-position-x: left;
+  background-position-y: bottom;
+  //margin-left: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.grid_2{
+  background-color: rgb(255, 0, 0);
+  width: 100%;
+  height: 100%;
+  max-height: 200px;
+  max-width: 421px;
+  width: 421px;
+  height: 200px;
+}
+.grid_3{
+  background-color: rgb(0, 255, 76);
+  width: 100%;
+  height: 100%;
+  max-height: 200px;
+  max-width: 421px;
+  width: 421px;
+  height: 200px;
+}
+.grid_4{
+  background-color: rgb(38, 0, 255);
+  width: 100%;
+  height: 100%;
+  max-height: 200px;
+  max-width: 421px;
+  width: 421px;
+  height: 200px;
+}
+.grid_5{
+  background-color: rgb(255, 136, 0);
+  width: 100%;
+  height: 100%;
+ max-height: 200px;
+  max-width: 421px;
+  width: 421px;
+  height: 200px;
+}
+
+
+
+.test-1 {
+  display: flex;
+}
