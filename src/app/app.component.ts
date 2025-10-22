@@ -1,17 +1,15 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { HearderComponent } from "./header/header.component";
-
+import { HearderComponent } from './header/header.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,RouterLink, HearderComponent],
+  imports: [RouterOutlet, RouterLink, HearderComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
 
 export class AppComponent {
   title = 'mentoring-first-project';
-  
 }
