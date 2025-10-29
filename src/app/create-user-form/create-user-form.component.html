@@ -13,7 +13,7 @@
     <input type="text" class="form-input" formControlName="email" />
     <p>Company name</p>
     <input type="text" class="form-input" formControlName="companyName" />
-    <button style="width: 150px; margin-top: 20px" [disabled]="!form.valid">
+    <button style="width: 150px; margin-top: 20px" [disabled]="form.invalid">
       Create user
     </button>
   </form>

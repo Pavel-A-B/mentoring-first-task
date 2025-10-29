@@ -27,7 +27,7 @@ export class UsersService {
     const existingUser = this.usersSubject$.value.find(
       (currentElement: User) => currentElement.email === user.email
     );
-    if (existingUser !== undefined) {
+    if (existingUser) {
       alert('Пользователь с таким EMAIL уже существует');
     } else {
       this.usersSubject$.next([...this.usersSubject$.value, user]);
@@ -37,7 +37,7 @@ export class UsersService {
 
   deleteUser(id: number) {
     this.usersSubject$.next(
-      this.usersSubject$.value.filter((item) => item.id !== id)
+      this.usersSubject$.value.filter((item: User) => item.id !== id)
     );
   }
 }

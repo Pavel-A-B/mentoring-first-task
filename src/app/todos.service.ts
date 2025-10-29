@@ -29,7 +29,7 @@ export class TodosService {
 
   deleteTodo(id: number) {
     this.todosSubject$.next(
-      this.todosSubject$.value.filter((item) => item.id !== id)
+      this.todosSubject$.value.filter((item: Todo) => item.id !== id)
     )
   }
 }
