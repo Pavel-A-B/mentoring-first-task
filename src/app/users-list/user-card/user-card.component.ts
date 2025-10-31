@@ -5,7 +5,8 @@ import { User } from "../users.interface";
 selector: 'app-user-card',
 standalone:true,
 templateUrl:'./user-card.component.html',
-styleUrl:'./user-card.component.scss'
+styleUrl:'./user-card.component.scss',
+imports: [],
 })
 
 export class UserCardComponent{
