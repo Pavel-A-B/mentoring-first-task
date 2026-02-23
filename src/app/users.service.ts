@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { User } from './users-list/users.interface';
+import { User } from './interfaces/users.interface';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
@@ -21,6 +21,7 @@ export class UsersService {
         }
       })
     );
+    console.log('hflf z service ', editUser)
   }
 
   createUser(user: User) {

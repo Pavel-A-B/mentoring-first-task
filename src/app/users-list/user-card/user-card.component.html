@@ -3,5 +3,10 @@
   <p>{{ user.username }}</p>
   <p>{{ user.email }}</p>
   <p>{{ user.company.name }}</p>
-  <button (click)="onDeleteUser(user.id)">Удалить пользователя</button>
+  <button class="card-button" (click)="openDialogDeleteUser()">
+    Удалить пользователя
+  </button>
+  <button class="card-button" (click)="openDialogEditUser()">
+    Редактировать пользователя
+  </button>
 </div>

@@ -1,6 +1,9 @@
 export interface CreateUser {
+  id:number;
   name: string;
   username: string;
   email: string;
-  companyName: string;  
+  company: {
+    name: string;
+  };
 }

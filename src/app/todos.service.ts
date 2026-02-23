@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { Todo } from './todos-list/todos.interface';
+import { Todo } from './interfaces/todos.interface';
 
 @Injectable({ providedIn: 'root' })
 export class TodosService {
@@ -13,14 +13,15 @@ export class TodosService {
 
   editTodo(editTodo: Todo) {
     this.todosSubject$.next(
-      this.todosSubject$.value.map((todo:Todo) => {
-        if (todo.id === editTodo.id) {
-          return editTodo
+      this.todosSubject$.value.map((todo: Todo) => {
+        if (todo.userId === editTodo.userId) {
+          return editTodo;
         } else {
-          return todo
+          return todo;
         }
       })
     );
+  console.log('The dialog was closed, editTodo222222:', editTodo);
   }
 
   createTodo(todo: Todo) {
@@ -30,6 +31,6 @@ export class TodosService {
   deleteTodo(id: number) {
     this.todosSubject$.next(
       this.todosSubject$.value.filter((item: Todo) => item.id !== id)
-    )
+    );
   }
 }
