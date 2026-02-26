@@ -6,7 +6,7 @@ import { Todo } from '../interfaces/todos.interface';
 import { TodosService } from '../todos.service';
 import { CreateTodo } from '../interfaces/create-todo.interface';
 import { CreateTodoDialogComponent } from '../create-todo-dialog/create-todo-dialog.component';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -39,8 +39,8 @@ export class TodosListComponent {
     });
   }
 
-  editTodo(todo: any){
-    this.todosService.editTodo({...todo});
+  editTodo(todo: Todo) {
+    this.todosService.editTodo({ ...todo });
   }
 
   deleteTodo(id: number) {
@@ -48,7 +48,9 @@ export class TodosListComponent {
   }
 
   openCreateTodosDialog(): void {
-    const dialogRef = this.dialog.open(CreateTodoDialogComponent);
+    const dialogRef: MatDialogRef<CreateTodoDialogComponent> = this.dialog.open(
+      CreateTodoDialogComponent,
+    );
 
     dialogRef.afterClosed().subscribe((Todo: Todo) => {
       if (!Todo) {

@@ -21,7 +21,7 @@ import { User } from '../../interfaces/users.interface';
   ],
 })
 export class DeleteUserDialogComponent {
-  readonly data = inject<{ user: User }>(MAT_DIALOG_DATA);
+  readonly data: { user: User } = inject<{ user: User }>(MAT_DIALOG_DATA);
 
   get userId(): number {
     return this.data.user.id;

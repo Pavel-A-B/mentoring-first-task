@@ -13,11 +13,14 @@
         Скрыть/Показать Католог
       </button>
       <button (click)="changeMenuText()">Изменить текст</button>
+      <div class="header__date">
+        {{ today | date: "medium" }}
+      </div>
     </div>
     <div class="header-right">
       <img class="header-right-item" src="/assets/Phone.svg" alt="ph" />
       <a href="tel:+79650842929" class="header-right-item">+7-965-084-29-29</a>
-      <img class="header-right-item" src="/assets/heart 1.svg" alt="h" />
+      <img class="header-right-item" src="/assets/heart1.svg" alt="h" />
       <div class="header-right-item">
         <button class="header-right-item-button">
           <img
@@ -57,7 +60,7 @@
           />
         </div>
       </form>
-      <img class="search-gps" src="/assets/map-pin (2) 1.svg" alt="" />
+      <img class="search-gps" src="/assets/map-pin.svg" alt="" />
       <span class="search-name" style="color: white">Москва</span>
     </div>
   </div>

@@ -10,7 +10,8 @@ import { MAT_DIALOG_DATA, MatDialogClose } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import { CreateUser } from '../../interfaces/create-user.interface';
+import { User } from '../../interfaces/users.interface';
+
 
 @Component({
   selector: 'app-create-user-dialog',
@@ -30,13 +31,12 @@ import { CreateUser } from '../../interfaces/create-user.interface';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CreateUserDialogComponent {
-  readonly data = inject<{ user: CreateUser }>(MAT_DIALOG_DATA);
+  readonly data: { user: User } = inject<{ user: User }>(
+    MAT_DIALOG_DATA,
+  );
 
   public form = new FormGroup({
-    name: new FormControl('', [
-      Validators.required,
-      Validators.minLength(2),
-    ]),
+    name: new FormControl('', [Validators.required, Validators.minLength(2)]),
     username: new FormControl('', [
       Validators.required,
       Validators.minLength(2),
@@ -47,12 +47,7 @@ export class CreateUserDialogComponent {
       Validators.minLength(3),
     ]),
     company: new FormGroup({
-      name: new FormControl('', [
-        Validators.required,
-        Validators.minLength(2),
-      ]),
+      name: new FormControl('', [Validators.required, Validators.minLength(2)]),
     }),
   });
-
-  
 }

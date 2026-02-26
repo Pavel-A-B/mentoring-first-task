@@ -8,7 +8,7 @@ import {
   MatDialogContent,
   MatDialogTitle,
 } from '@angular/material/dialog';
-import { CreateTodo } from '../interfaces/create-todo.interface';
+import { Todo } from '../interfaces/todos.interface';
 
 @Component({
   selector: 'app-delete-todo-dialog',
@@ -24,6 +24,6 @@ import { CreateTodo } from '../interfaces/create-todo.interface';
   styleUrl: './delete-todo-dialog.component.scss',
 })
 export class DeleteTodoDialogComponent {
-  public readonly data = inject<{ todo: CreateTodo }>(MAT_DIALOG_DATA);
-  readonly dialog = inject(MatDialog);
+  readonly data: { todo: Todo } = inject<{ todo: Todo }>(MAT_DIALOG_DATA);
+  readonly dialog: MatDialog = inject(MatDialog);
 }

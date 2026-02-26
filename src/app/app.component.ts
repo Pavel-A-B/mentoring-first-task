@@ -11,5 +11,5 @@ import { HearderComponent } from './header/header.component';
 })
 
 export class AppComponent {
-  title = 'mentoring-first-project';
+  title : string = 'mentoring-first-project';
 }

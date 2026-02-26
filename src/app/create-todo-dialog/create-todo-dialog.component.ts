@@ -49,21 +49,12 @@ function completedValidator(): ValidatorFn {
   styleUrl: './create-todo-dialog.component.scss',
 })
 export class CreateTodoDialogComponent {
-  readonly data = inject<{ todo: Todo }>(MAT_DIALOG_DATA);
+  readonly data: { todo: Todo } = inject<{ todo: Todo }>(MAT_DIALOG_DATA);
 
   public form = new FormGroup({
-    title: new FormControl('', [
-      Validators.required,
-      Validators.minLength(2),
-    ]),
-    userId: new FormControl('', [
-      Validators.required,
-      Validators.minLength(2),
-    ]),
-    completed: new FormControl( '', [
-      Validators.required,
-      completedValidator(),
-    ]),
+    title: new FormControl('', [Validators.required, Validators.minLength(2)]),
+    userId: new FormControl('', [Validators.required, Validators.minLength(2)]),
+    completed: new FormControl('', [Validators.required, completedValidator()]),
   });
 
   private getCompletedValue(): boolean {

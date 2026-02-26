@@ -49,7 +49,7 @@ function completedValidator(): ValidatorFn {
   styleUrl: './edit-todo-dialog.component.scss',
 })
 export class EditTodoDialogComponent {
-  readonly data = inject<{ todo: Todo }>(MAT_DIALOG_DATA);
+  readonly data: { todo: Todo } = inject<{ todo: Todo }>(MAT_DIALOG_DATA);
 
   private getCompletedValue(): boolean {
     const value = this.form.get('completed')?.value!.trim().toLowerCase();

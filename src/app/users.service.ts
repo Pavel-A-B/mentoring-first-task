@@ -1,17 +1,19 @@
 import { Injectable } from '@angular/core';
 import { User } from './interfaces/users.interface';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class UsersService {
-  private usersSubject$ = new BehaviorSubject<User[]>([]);
-  users$ = this.usersSubject$.asObservable();
+  private usersSubject$: BehaviorSubject<User[]> = new BehaviorSubject<User[]>(
+    [],
+  );
+  users$: Observable<User[]> = this.usersSubject$.asObservable();
 
-  setUsers(users: User[]) {
+  setUsers(users: User[]): void {
     this.usersSubject$.next(users);
   }
 
-  editUser(editUser: User) {
+  editUser(editUser: User): void {
     this.usersSubject$.next(
       this.usersSubject$.value.map((user: User) => {
         if (user.id === editUser.id) {
@@ -19,14 +21,14 @@ export class UsersService {
         } else {
           return user;
         }
-      })
+      }),
     );
-    console.log('hflf z service ', editUser)
+   
   }
 
-  createUser(user: User) {
+  createUser(user: User): void {
     const existingUser = this.usersSubject$.value.find(
-      (currentElement: User) => currentElement.email === user.email
+      (currentElement: User) => currentElement.email === user.email,
     );
     if (existingUser) {
       alert('Пользователь с таким EMAIL уже существует');
@@ -36,9 +38,9 @@ export class UsersService {
     }
   }
 
-  deleteUser(id: number) {
+  deleteUser(id: number): void {
     this.usersSubject$.next(
-      this.usersSubject$.value.filter((item: User) => item.id !== id)
+      this.usersSubject$.value.filter((item: User) => item.id !== id),
     );
   }
 }

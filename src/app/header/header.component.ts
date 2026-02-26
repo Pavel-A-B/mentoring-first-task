@@ -1,11 +1,11 @@
-import { NgFor, NgIf } from '@angular/common';
+import { DatePipe, NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 
 const aboutCompanyFn = (title: string) => title;
 const aboutCompanyy: string = aboutCompanyFn('О компании');
-const menuItems = ['Каталог','Стройматериалы','Инструменты','Электрика','Интерьер и одежда'];
+const menuItems: string[] = ['Каталог','Стройматериалы','Инструменты','Электрика','Интерьер и одежда'];
 
-const upperCaseMenuItems = menuItems.map((item) => {
+const upperCaseMenuItems = menuItems.map((item:string) => {
   return item.toUpperCase();
 });
 
@@ -13,20 +13,21 @@ const upperCaseMenuItems = menuItems.map((item) => {
   selector: 'app-header',
   templateUrl: './header.component.html',
   standalone: true,
-  imports: [NgIf, NgFor],
+  imports: [NgIf, NgFor,DatePipe],
   styleUrl: './header.component.scss',
 })
 
 export class HearderComponent {
-  readonly headerItem1 = 'Главная';
-  readonly aboutCompany = aboutCompanyy;
-  readonly headerItem3 = 'Католог';
+  today: number = Date.now();
+  readonly headerItem1 : string = 'Главная';
+  readonly aboutCompany : string = aboutCompanyy;
+  readonly headerItem3 : string = 'Католог';
   isShowCatalog: boolean = true;
-  readonly header2Item1 = upperCaseMenuItems[0];
-  menuItems = upperCaseMenuItems;
-  isUpperCase = true;
-  changeMenuText() {
-    this.menuItems = upperCaseMenuItems.map((item) => this.isUpperCase ? item.toLowerCase() : item.toUpperCase());
+  readonly header2Item1 : string = upperCaseMenuItems[0];
+  menuItems: string[] = upperCaseMenuItems;
+  isUpperCase: boolean = true;
+  changeMenuText() : void {
+    this.menuItems = upperCaseMenuItems.map((item:string) => this.isUpperCase ? item.toLowerCase() : item.toUpperCase());
     this.isUpperCase = !this.isUpperCase;
   }
 }
