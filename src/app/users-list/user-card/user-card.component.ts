@@ -4,13 +4,15 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { EditUserDialogComponent } from '../edit-user-dialog/edit-user-dialog.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DeleteUserDialogComponent } from '../delete-user-dialog/delete-user-dialog.component';
-import { RemoveDashesPipe } from "../../pipes/return.pipe";
+import { ShadowDirective } from '../../directives/shadow.directive';
+import { ChangedPhonePipe } from '../../pipes/changed_phone .pipe';
+
 @Component({
   selector: 'app-user-card',
   standalone: true,
   templateUrl: './user-card.component.html',
   styleUrl: './user-card.component.scss',
-  imports: [RemoveDashesPipe],
+  imports: [ChangedPhonePipe, ShadowDirective],
 })
 export class UserCardComponent {
   @Input()

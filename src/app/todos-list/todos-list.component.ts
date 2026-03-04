@@ -20,17 +20,17 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TodosListComponent {
-  readonly todosApiService = inject(TodosApiService);
-  readonly todosService = inject(TodosService);
-  readonly dialog = inject(MatDialog);
-  private snackBar = inject(MatSnackBar);
+  readonly todosApiService: TodosApiService = inject(TodosApiService);
+  readonly todosService: TodosService = inject(TodosService);
+  readonly dialog: MatDialog = inject(MatDialog);
+  private snackBar: MatSnackBar = inject(MatSnackBar);
   constructor() {
     this.todosApiService.getTodos().subscribe((response: Todo[]) => {
       this.todosService.setTodos(response);
     });
   }
 
-  createTodo(formDateTodo: Todo) {
+  createTodo(formDateTodo: Todo): void {
     this.todosService.createTodo({
       id: new Date().getTime(),
       title: formDateTodo.title,
@@ -39,11 +39,11 @@ export class TodosListComponent {
     });
   }
 
-  editTodo(todo: Todo) {
+  editTodo(todo: Todo): void {
     this.todosService.editTodo({ ...todo });
   }
 
-  deleteTodo(id: number) {
+  deleteTodo(id: number): void {
     this.todosService.deleteTodo(id);
   }
 

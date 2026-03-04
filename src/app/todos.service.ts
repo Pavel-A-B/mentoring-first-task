@@ -9,11 +9,11 @@ export class TodosService {
   );
   todos$: Observable<Todo[]> = this.todosSubject$.asObservable();
 
-  setTodos(todos: Todo[]) {
+  setTodos(todos: Todo[]): void {
     this.todosSubject$.next(todos);
   }
 
-  editTodo(editTodo: Todo) {
+  editTodo(editTodo: Todo): void {
     this.todosSubject$.next(
       this.todosSubject$.value.map((todo: Todo) => {
         if (todo.id === editTodo.id) {
@@ -25,11 +25,11 @@ export class TodosService {
     );
   }
 
-  createTodo(todo: Todo) {
+  createTodo(todo: Todo): void {
     this.todosSubject$.next([...this.todosSubject$.value, todo]);
   }
 
-  deleteTodo(id: number) {
+  deleteTodo(id: number): void {
     this.todosSubject$.next(
       this.todosSubject$.value.filter((item: Todo) => item.id !== id),
     );

@@ -43,7 +43,7 @@ export class UsersListComponent {
     });
   }
 
-  createUser(formDateUser: CreateUser) {
+  createUser(formDateUser: CreateUser): void {
     this.usersService.createUser({
       id: new Date().getTime(),
       name: formDateUser.name,
@@ -55,11 +55,11 @@ export class UsersListComponent {
     });
   }
 
-  editUser(user: User) {
+  editUser(user: User): void {
     this.usersService.editUser({ ...user });
   }
 
-  deleteUser(id: number) {
+  deleteUser(id: number): void {
     this.usersService.deleteUser(id);
   }
 

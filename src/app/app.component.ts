@@ -9,7 +9,6 @@ import { HearderComponent } from './header/header.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-
 export class AppComponent {
-  title : string = 'mentoring-first-project';
+  title: string = 'mentoring-first-project';
 }

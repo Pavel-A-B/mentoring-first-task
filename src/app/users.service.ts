@@ -23,7 +23,6 @@ export class UsersService {
         }
       }),
     );
-   
   }
 
   createUser(user: User): void {

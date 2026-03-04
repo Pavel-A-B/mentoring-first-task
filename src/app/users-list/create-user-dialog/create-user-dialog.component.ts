@@ -12,7 +12,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { User } from '../../interfaces/users.interface';
 
-
 @Component({
   selector: 'app-create-user-dialog',
   standalone: true,
@@ -31,9 +30,7 @@ import { User } from '../../interfaces/users.interface';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CreateUserDialogComponent {
-  readonly data: { user: User } = inject<{ user: User }>(
-    MAT_DIALOG_DATA,
-  );
+  readonly data: { user: User } = inject<{ user: User }>(MAT_DIALOG_DATA);
 
   public form = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(2)]),

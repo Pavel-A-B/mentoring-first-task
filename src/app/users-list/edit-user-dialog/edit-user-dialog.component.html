@@ -19,7 +19,7 @@
       <input matInput formControlName="email" />
       <mat-error>No email</mat-error>
     </mat-form-field>
-     <div formGroupName="company">
+    <div formGroupName="company">
       <mat-form-field class="form-input">
         <mat-label>companyName</mat-label>
         <input matInput formControlName="name" />
@@ -30,6 +30,7 @@
       class="form-input"
       matIconSuffix
       mat-raised-button
+      matTooltip="Редактировать данные пользователя"
       color="primary"
       [disabled]="form.invalid"
       type="submit"
