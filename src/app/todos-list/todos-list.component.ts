@@ -4,7 +4,6 @@ import { AsyncPipe, NgFor } from '@angular/common';
 import { TodoCardComponent } from './todo-card/todo-card.component';
 import { Todo } from '../interfaces/todos.interface';
 import { TodosService } from '../todos.service';
-import { CreateTodo } from '../interfaces/create-todo.interface';
 import { CreateTodoDialogComponent } from '../create-todo-dialog/create-todo-dialog.component';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatButton } from '@angular/material/button';

@@ -1,7 +1,7 @@
 import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 
-const newPages = [1, 2, 3, 4, 5];
+const newPages: number[] = [1, 2, 3, 4, 5];
 
 @Component({
   selector: 'app-homepage',

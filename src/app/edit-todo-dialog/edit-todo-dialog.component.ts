@@ -15,12 +15,12 @@ import {
   MatLabel,
 } from '@angular/material/form-field';
 import { MatIcon } from '@angular/material/icon';
-
 import { MatInputModule } from '@angular/material/input';
 import { MatCardActions } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { Todo } from '../interfaces/todos.interface';
 import { MatTooltipModule } from '@angular/material/tooltip';
+
 function completedValidator(): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
     const value = control.value?.trim().toLowerCase();
