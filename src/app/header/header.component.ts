@@ -1,11 +1,20 @@
-import { DatePipe, NgFor, NgIf } from '@angular/common';
-import { Component } from '@angular/core';
+import { AsyncPipe, DatePipe, NgFor, NgIf } from '@angular/common';
+import { Component, inject } from '@angular/core';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { AuthComponent } from '../auth/auth.component';
+import { UserService } from '../user.service';
 
 const aboutCompanyFn = (title: string) => title;
 const aboutCompanyy: string = aboutCompanyFn('О компании');
-const menuItems: string[] = ['Каталог','Стройматериалы','Инструменты','Электрика','Интерьер и одежда'];
+const menuItems: string[] = [
+  'Каталог',
+  'Стройматериалы',
+  'Инструменты',
+  'Электрика',
+  'Интерьер и одежда',
+];
 
-const upperCaseMenuItems = menuItems.map((item:string) => {
+const upperCaseMenuItems = menuItems.map((item: string) => {
   return item.toUpperCase();
 });
 
@@ -13,21 +22,49 @@ const upperCaseMenuItems = menuItems.map((item:string) => {
   selector: 'app-header',
   templateUrl: './header.component.html',
   standalone: true,
-  imports: [NgIf, NgFor,DatePipe],
+  imports: [NgIf, NgFor, DatePipe, AsyncPipe,NgIf],
   styleUrl: './header.component.scss',
 })
-
 export class HearderComponent {
   today: number = Date.now();
-  readonly headerItem1 : string = 'Главная';
-  readonly aboutCompany : string = aboutCompanyy;
-  readonly headerItem3 : string = 'Католог';
+  readonly headerItem1: string = 'Главная';
+  readonly aboutCompany: string = aboutCompanyy;
+  readonly headerItem3: string = 'Католог';
   isShowCatalog: boolean = true;
-  readonly header2Item1 : string = upperCaseMenuItems[0];
+  readonly header2Item1: string = upperCaseMenuItems[0];
   menuItems: string[] = upperCaseMenuItems;
   isUpperCase: boolean = true;
-  changeMenuText() : void {
-    this.menuItems = upperCaseMenuItems.map((item:string) => this.isUpperCase ? item.toLowerCase() : item.toUpperCase());
+  readonly dialog: MatDialog = inject(MatDialog);
+  public readonly userService: UserService = inject(UserService);
+
+  public changeMenuText(): void {
+    this.menuItems = upperCaseMenuItems.map((item: string) =>
+      this.isUpperCase ? item.toLowerCase() : item.toUpperCase(),
+    );
     this.isUpperCase = !this.isUpperCase;
+  }
+
+  public openDialog(): void {
+    const dialogRef: MatDialogRef<AuthComponent> = this.dialog.open(
+      AuthComponent,
+      {
+        width: '400px',
+        height: '200px',
+      },
+    );
+
+    dialogRef.afterClosed().subscribe((Result: string) => {
+      console.log(Result);
+      if (Result === 'admin') {
+        this.userService.loginisAdmin();
+      } else if (Result === 'user') {
+        this.userService.loginisUser();
+      } else return undefined;
+    });
+  }
+
+  public logout(): void {
+    this.userService.logout();
+    console.log('совершили логаут');
   }
 }
