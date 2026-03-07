@@ -3,6 +3,8 @@ import { Component, inject } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { AuthComponent } from '../auth/auth.component';
 import { UserService } from '../user.service';
+import { CartDirective } from '../directives/cart.directive';
+import { ShadowDirective } from '../directives/shadow.directive';
 
 const aboutCompanyFn = (title: string) => title;
 const aboutCompanyy: string = aboutCompanyFn('О компании');
@@ -22,7 +24,15 @@ const upperCaseMenuItems = menuItems.map((item: string) => {
   selector: 'app-header',
   templateUrl: './header.component.html',
   standalone: true,
-  imports: [NgIf, NgFor, DatePipe, AsyncPipe,NgIf],
+  imports: [
+    NgIf,
+    NgFor,
+    DatePipe,
+    AsyncPipe,
+    NgIf,
+    CartDirective,
+    ShadowDirective,
+  ],
   styleUrl: './header.component.scss',
 })
 export class HearderComponent {
@@ -53,11 +63,11 @@ export class HearderComponent {
       },
     );
 
-    dialogRef.afterClosed().subscribe((Result: string) => {
-      console.log(Result);
-      if (Result === 'admin') {
+    dialogRef.afterClosed().subscribe((result: string) => {
+      console.log(result);
+      if (result === 'admin') {
         this.userService.loginisAdmin();
-      } else if (Result === 'user') {
+      } else if (result === 'user') {
         this.userService.loginisUser();
       } else return undefined;
     });
