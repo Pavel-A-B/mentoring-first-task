@@ -22,7 +22,7 @@
       <a href="tel:+79650842929" class="header-right-item">+7-965-084-29-29</a>
       <img class="header-right-item" src="/assets/heart1.svg" alt="h" />
       <div class="header-right-item">
-        <button class="header-right-item-button">
+        <button class="header-right-item-button" cart>
           <img
             class="header-right-item-button-img"
             src="/assets/Maskgroup.svg"
@@ -31,10 +31,16 @@
           <div class="header-right-item-button-text">Пусто</div>
         </button>
         <div style="display: flex; padding-top: 15px">
-          <button (click)="openDialog()" *ngIf="(userService.user$ | async) === null">
+          <button
+            (click)="openDialog()"
+            *ngIf="(userService.user$ | async) === null"
+          >
             Войти
           </button>
-          <button (click)="logout()"  *ngIf="(userService.user$ | async) !== null">
+          <button
+            (click)="logout()"
+            *ngIf="(userService.user$ | async) !== null"
+          >
             Выйти
           </button>
         </div>

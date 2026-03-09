@@ -64,7 +64,6 @@ export class HearderComponent {
     );
 
     dialogRef.afterClosed().subscribe((result: string) => {
-      console.log(result);
       if (result === 'admin') {
         this.userService.loginisAdmin();
       } else if (result === 'user') {
@@ -75,6 +74,5 @@ export class HearderComponent {
 
   public logout(): void {
     this.userService.logout();
-    console.log('совершили логаут');
   }
 }
