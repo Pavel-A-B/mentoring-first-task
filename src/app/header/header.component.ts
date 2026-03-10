@@ -5,6 +5,7 @@ import { AuthComponent } from '../auth/auth.component';
 import { UserService } from '../user.service';
 import { CartDirective } from '../directives/cart.directive';
 import { ShadowDirective } from '../directives/shadow.directive';
+import { RouterLink } from '@angular/router';
 
 const aboutCompanyFn = (title: string) => title;
 const aboutCompanyy: string = aboutCompanyFn('О компании');
@@ -32,6 +33,7 @@ const upperCaseMenuItems = menuItems.map((item: string) => {
     NgIf,
     CartDirective,
     ShadowDirective,
+    RouterLink,
   ],
   styleUrl: './header.component.scss',
 })

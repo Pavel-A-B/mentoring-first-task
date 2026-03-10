@@ -29,7 +29,7 @@ export class UserService {
     this.userSubject$.next({ ...this.user, isAdmin: false });
   }
 
-  get isAdmin() {
+  get isAdmin(): boolean | null | undefined {
     return this.userSubject$.value?.isAdmin;
   }
 
