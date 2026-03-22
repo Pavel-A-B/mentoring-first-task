@@ -3,13 +3,14 @@ import { TodosApiService } from '../todo-api.sevice';
 import { AsyncPipe, NgFor } from '@angular/common';
 import { TodoCardComponent } from './todo-card/todo-card.component';
 import { Todo } from '../interfaces/todos.interface';
-import { TodosService } from '../todos.service';
-import { CreateTodo } from '../interfaces/create-todo.interface';
 import { CreateTodoDialogComponent } from '../create-todo-dialog/create-todo-dialog.component';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { TodosActions } from './store/todo.actions';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-todos-list',
@@ -21,47 +22,38 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class TodosListComponent {
   readonly todosApiService = inject(TodosApiService);
-  readonly todosService = inject(TodosService);
   readonly dialog = inject(MatDialog);
   private snackBar = inject(MatSnackBar);
-  constructor() {
-    this.todosApiService.getTodos().subscribe((response: Todo[]) => {
-      this.todosService.setTodos(response);
-    });
+  private readonly store = inject(Store);
+  public readonly todos$: Observable<Todo[]> = this.store.select(
+    (state) => state.todos.todos,
+  );
+  ngOnInit() {
+    this.store.dispatch(TodosActions.load());
   }
 
-  createTodo(formDateTodo: Todo) {
-    this.todosService.createTodo({
-      id: new Date().getTime(),
-      title: formDateTodo.title,
-      userId: formDateTodo.userId,
-      completed: formDateTodo.completed,
-    });
+  public deleteTodo(id: number) {
+    this.store.dispatch(TodosActions.delete({ id }));
   }
 
-  editTodo(todo: Todo) {
-    this.todosService.editTodo({ ...todo });
-  }
-
-  deleteTodo(id: number) {
-    this.todosService.deleteTodo(id);
+  editTodo(todo: any) {
+    this.store.dispatch(TodosActions.edit({ todo }));
   }
 
   openCreateTodosDialog(): void {
-    const dialogRef: MatDialogRef<CreateTodoDialogComponent> = this.dialog.open(
+    const dialogRef = this.dialog.open<
       CreateTodoDialogComponent,
-    );
+      undefined,
+      Todo
+    >(CreateTodoDialogComponent);
 
-    dialogRef.afterClosed().subscribe((Todo: Todo) => {
-      if (!Todo) {
+    dialogRef.afterClosed().subscribe((newTodo: Todo | undefined) => {
+      if (!newTodo) {
         this.snackBar.open('Отмена добавления!', 'ok', { duration: 3000 });
         return;
       }
 
-      if (Todo) {
-        this.snackBar.open('Задача добавлена', 'ok', { duration: 3000 });
-        this.createTodo(Todo);
-      }
+      this.store.dispatch(TodosActions.create({ todo: newTodo }));
     });
   }
 }
