@@ -1,8 +1,9 @@
 import { createReducer, on } from '@ngrx/store';
 import { User } from '../../interfaces/users.interface';
 import { UsersActions } from './user.actions';
+import { UserState } from './users.selectors';
 
-const initialState: { users: User[] } = {
+const initialState: UserState = {
   users: [],
 };
 
@@ -14,13 +15,9 @@ export const userReducer = createReducer(
   })),
   on(UsersActions.edit, (state, payload) => ({
     ...state,
-    users: state.users.map((user: User) => {
-      if (user.id === payload.user.id) {
-        return payload.user;
-      } else {
-        return user;
-      }
-    }),
+    users: state.users.map((user: User) =>
+      user.id === payload.user.id ? payload.user : user,
+    ),
   })),
   on(UsersActions.create, (state, payload) => ({
     ...state,

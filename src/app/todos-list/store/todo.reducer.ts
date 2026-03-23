@@ -35,7 +35,7 @@ export const todoReducer = createReducer<TodosState>(
   })),
   on(TodosActions.edit, (state, { todo: Todo }) => ({
     ...state,
-    todos: state.todos.map((todo) => (todo.id === Todo.id ? Todo : todo)),
+    todos: state.todos.map((todo: Todo) => todo.id === Todo.id ? Todo : todo),
   })),
   on(TodosActions.create, (state, { todo }) => ({
     ...state,
@@ -43,6 +43,6 @@ export const todoReducer = createReducer<TodosState>(
   })),
   on(TodosActions.delete, (state, { id }) => ({
     ...state,
-    todos: state.todos.filter((todo) => todo.id !== id),
+    todos: state.todos.filter((todo: Todo) => todo.id !== id),
   })),
 );
